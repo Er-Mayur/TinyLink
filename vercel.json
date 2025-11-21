@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/dist",
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "FRONTEND_URL": "@frontend_url",
+    "VITE_API_BASE_URL": "@vite_api_base_url"
+  },
+  "functions": {
+    "api/index.js": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  }
+}
