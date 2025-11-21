@@ -14,6 +14,22 @@ A modern, full-stack URL shortener application built with React, Node.js, and Po
 - **Real-time Updates** - Data updates when you return to the tab
 - **Responsive Design** - Works seamlessly on desktop and mobile
 
+## 🌐 Live Project Link
+👉 https://mayur-tinylink.vercel.app/
+
+## 📸 Project Output Screenshots
+
+1. Dashboard Page
+<img width="1470" height="956" alt="Screenshot 2025-11-21 at 6 18 43 PM" src="https://github.com/user-attachments/assets/50f56e07-9287-4a89-ab2e-9e1ad8bd8fca" />
+
+ 
+2. Manage and track links
+<img width="1470" height="956" alt="Screenshot 2025-11-21 at 6 18 55 PM" src="https://github.com/user-attachments/assets/7f3437b6-bf5a-4fde-82bb-8c06e5bae955" />
+
+
+3. Link Stats Page
+<img width="1470" height="956" alt="Screenshot 2025-11-21 at 6 19 04 PM" src="https://github.com/user-attachments/assets/bbc577ca-7055-4ee1-8479-3239579ffe30" />
+
 ## Tech Stack
 
 ### Frontend
@@ -235,123 +251,3 @@ VITE_APP_SHORT_URL_BASE=http://localhost:3000
 - Styled 404 page when accessing deleted or invalid links
 - Users can easily navigate back to dashboard
 - Works from both backend and frontend routes
-
-## Deployment
-
-### 🚀 Deploy to Vercel (Full Stack)
-
-Vercel is the easiest way to deploy both frontend and backend together.
-
-1. **Push to GitHub**
-```bash
-git add .
-git commit -m "Prepare for Vercel deployment"
-git push origin main
-```
-
-2. **Create Vercel Account**
-   - Go to [vercel.com](https://vercel.com)
-   - Sign in with GitHub
-   - Authorize Vercel to access your repositories
-
-3. **Deploy Project**
-   - Click "Add New Project"
-   - Select the TinyLink repository
-   - Configure project settings:
-     - **Build Command**: `cd frontend && npm run build`
-     - **Output Directory**: `frontend/dist`
-     - **Install Command**: `npm install --legacy-peer-deps`
-
-4. **Set Environment Variables**
-   In Vercel project settings, add:
-   ```
-   DATABASE_URL = your_postgresql_url
-   FRONTEND_URL = your_vercel_domain
-   VITE_API_BASE_URL = your_api_url
-   ```
-
-5. **Deploy**
-   - Click "Deploy"
-   - Wait for build to complete
-   - Your site is now live!
-
-### Alternative: Deploy Backend on Render
-
-If you prefer to host backend separately:
-
-1. Push code to GitHub
-2. Go to [render.com](https://render.com)
-3. Create New Web Service
-4. Connect your GitHub repository
-5. Configure:
-   - **Build Command**: `npm install`
-   - **Start Command**: `node src/server.js`
-   - **Root Directory**: `backend`
-6. Add environment variables
-7. Deploy
-
-### Alternative: Deploy Frontend on Vercel Only
-
-1. Push code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import `frontend` directory only
-4. Set `VITE_API_BASE_URL` to your backend URL
-5. Deploy
-
-## Database Schema
-
-### links table
-```sql
-CREATE TABLE links (
-  code VARCHAR(8) PRIMARY KEY,
-  long_url TEXT NOT NULL,
-  clicks INTEGER DEFAULT 0,
-  created_at TIMESTAMP DEFAULT NOW(),
-  last_clicked TIMESTAMP
-);
-```
-
-## Performance Considerations
-
-- IST conversion happens at database level for consistency
-- Event-based data refresh instead of polling
-- Optimized database queries with proper indexing
-- CSS-in-JS with Tailwind for minimal bundle size
-- Efficient component re-renders with React hooks
-
-## Security
-
-- URL validation prevents XSS attacks
-- CORS enabled for secure cross-origin requests
-- PostgreSQL parameterized queries prevent SQL injection
-- Environment variables keep sensitive data secure
-
-## Future Enhancements
-
-- 🔐 User authentication and link ownership
-- 📊 Advanced analytics dashboard
-- 🔗 QR code generation
-- 📅 Link expiration dates
-- 📤 Batch URL import/export
-- 🎨 Custom branding for links
-- 📧 Email notifications for link activity
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## License
-
-MIT License - feel free to use this project for any purpose.
-
-## Support
-
-For issues, questions, or suggestions, please open an issue on GitHub.
-
----
-
-**Built with ❤️ using React, Node.js, and PostgreSQL**
