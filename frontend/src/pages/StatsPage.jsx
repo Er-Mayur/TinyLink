@@ -4,6 +4,8 @@ import axios from 'axios';
 import Navbar from '../components/Navbar';
 import StatsCard from '../components/StatsCard';
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:3000";
+
 const StatsPage = () => {
   const { code } = useParams();
   const [link, setLink] = useState(null);
@@ -19,7 +21,7 @@ const StatsPage = () => {
 
   const fetchLink = async () => {
     try {
-      const res = await axios.get(`/api/links/${code}`);
+      const res = await axios.get(`${API_BASE}/api/links/${code}`);
       setLink(res.data);
     } catch (err) {
       setError('Link not found');
